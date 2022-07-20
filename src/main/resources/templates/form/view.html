@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Hello</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+	<h1 th:text="${title}"></h1>
+	<table>
+		<tr>
+			<th>id</th>
+			<th>名前</th>
+			<th>性別</th>
+			<th>年齢</th>
+			<th>母</th>
+			<th>父</th>
+			<th>勝利</th>
+			<th>負け</th>
+			<th>勝率</th>
+			<th>編集画面</th>
+			<th>削除</th>
+		</tr>
+		<tr th:each="res : ${dbList}">
+			<td th:text="${res.id}">1</td>
+			<td th:text="${res.name}">名前</td>
+			<td th:if="${res.sex == 1}">
+			<p>牡馬</p></td>
+			<td th:if="${res.sex == 0}">
+			<p>牝馬</p></td>
+			<td th:text="${res.age}">年齢</td>
+			<td th:text="${res.mother}">母</td>
+			<td th:text="${res.father}">父</td>
+			<td th:text="${res.win}">勝利</td>
+			<td th:text="${res.lose}">負け</td>
+			<td th:text="${res.win}/(${res.win}+${res.lose})*100" id="elemId" >勝率</td>
+			<td>
+				<form th:action="@{/edit/{id}(id=${res.id})}">
+					<input type="submit" value="編集">
+				</form>
+			</td>
+			<td>
+				<form th:action="@{/del/{id}(id=${res.id})}">
+					<input type="submit" value="削除" />
+				</form>
+			</td>
+		</tr>
+	</table>
+	<p>
+		<a href="/form" th:href="@{/input}">フォーム入力画面へ</a>
+		<a href=# th:href="@{/home}">ホーム画面へ</a>
+	</p>
+	
+	<form method="post" action=# th:action="@{/organization}"th:object="${avg}">
+	<input type="hidden" name="dept" value="全体">
+	<input type="submit"value="組織図へ">
+	</form>
+	<img th:src="@{/img/horse3.jpg}"height="200"width="400">
+	
+</body>
+</html>

@@ -1,0 +1,1 @@
+INSERT INTO sample (name,sex,age,mother,father,win,lose) VALUES ('トクマンドラゴン','0','6','トクマンエリー','秀幸ドラゴン','18','3');

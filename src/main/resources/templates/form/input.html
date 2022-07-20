@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Hello</title>
+<meta charset="utf-8" />
+
+</head>
+<body>
+<p>dadadadadada</p>
+
+    <form method="POST" action=# th:action="@{/input/exe}" th:object="${umainput}">
+    <table border=1>
+    	<tr>
+    	<th>名前を記入</th>
+    	<td>
+    	<input type="text" name="name" th:value="*{name}">
+    	</td>
+    	</tr>
+    	<tr>
+    	<th>性別を記入</th>
+    	<td><select name="sex">
+		<option th:value="0">牝馬</option>
+		<option th:value="1">牡馬</option>
+		</select>
+		</td>
+    	</tr>
+    	<tr>
+    	<th>年齢を記入</th>
+    	<td>
+    	<input type="number" name="age" th:value="*{age}">
+    	</td>
+    	</tr>
+    	<tr>
+        <th>母</th>
+        <td>
+        <input type="text" name="mother" th:value="*{mother}">
+        </td>
+        </tr>
+        
+        <tr>
+        <th>父</th>
+        <td>
+        <input type="text" name="father" th:value="*{father}">
+        </td>
+        </tr>
+        <tr>
+        <th>勝ち</th>
+        <td>
+        <input type="number" name="win" th:value="*{win}">
+        </td>
+        </tr>
+        <tr>
+        <th>負け</th>
+        <td>
+        <input type="number" name="lose" th:value="*{lose}">
+        </td>
+      	</tr>
+      	<tr>
+      	<th>完了</th>
+        <td><input type="submit" value="送信する"></td>
+        </tr>
+    </table>
+    </form>
+    <a href=# th:href="@{/view}">ホーム画面に戻ります</a>
+   
+    
+</body>
+</html>
