@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Hello</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+	<h1 th:text="${title}"></h1>
+	<div th:object="${umainput}">
+		<form action="#" method="get" th:action="@{/edit/__*{id}__/exe}">
+			<p>
+				番号:<span th:text="*{id}"></span> <input type="hidden" name="id"
+					th:value="*{id}">
+			</p>
+			<p>
+				名前: <input type="text" name="name" th:value="*{name}">
+			</p>
+			<p>
+				性別: <input type="number" name="sex" th:value="*{sex}">
+			</p>
+			<p>
+				年齢: <input type="number" name="age" th:value="*{age}">
+			</p>
+			<p>
+				母: <input type="text" name="mother" th:value="*{mother}">
+			</p>
+			<p>
+				父: <input type="text" name="father" th:value="*{father}">
+			</p>
+			<p>
+			    勝ち: <input type="text" name="win" th:value="*{win}">
+			</p>
+			<p>
+				負け: <input type="text" name="lose" th:value="*{lose}">
+			</p>
+			<input type="submit" value="更新">
+		</form>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
